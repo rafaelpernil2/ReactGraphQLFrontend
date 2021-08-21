@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: allotr-react-frontend
+  namespace: openfaas-fn
+spec:
+# Should change to Ingress Nginx in the future
+  type: LoadBalancer 
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    app: allotr-react-frontend

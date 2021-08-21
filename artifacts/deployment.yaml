@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: allotr-react-frontend
+  namespace: openfaas-fn
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: allotr-react-frontend
+  template:
+    metadata:
+      labels:
+        app: allotr-react-frontend
+    spec:
+      containers:
+        - name: allotr-react-frontend
+          image: rafaelpernil/allotr-react-frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
